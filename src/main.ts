@@ -3,9 +3,10 @@ import { ViteSSG } from 'vite-ssg'
 import devalue from '@nuxt/devalue'
 import generatedRoutes from 'virtual:generated-pages'
 import { setupLayouts } from 'virtual:generated-layouts'
+import axios from 'axios'
 import App from './App.vue'
 import 'virtual:windi.css'
-import './assets/styles/main.css'
+import './assets/styles/main.scss'
 const routes = setupLayouts(generatedRoutes)
 
 export const createApp = ViteSSG(

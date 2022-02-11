@@ -12,7 +12,9 @@ module.exports = {
         karla: ['Karla', 'sans-serif'],
       },
       colors: {
-        black: '#272727',
+        'black': '#272727',
+        'white': '#FFFFFF',
+        'app-red-1': '#FF2121',
       },
     },
   },

@@ -36,7 +36,6 @@ export default defineConfig({
     }),
     WindiCSS(),
   ],
-
   // https://github.com/vitest-dev/vitest
   test: {
     environment: 'jsdom',

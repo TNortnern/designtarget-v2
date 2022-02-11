@@ -1,14 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "dev": "vite --port 3333 --open",
-    "build": "vite ssg build",
+    "dev": "vite --port 3338",
+    "build": "vite-ssg build",
     "preview": "vite preview",
     "lint": "eslint . --ext=.ts,.vue",
     "test": "vitest"
   },
   "dependencies": {
     "@vueuse/core": "^7.5.5",
+    "axios": "^0.25.0",
     "pinia": "^2.0.11",
     "vue": "^3.2.29",
     "vue-router": "^4.0.12"
@@ -25,6 +26,7 @@
     "eslint": "^8.8.0",
     "jsdom": "^19.0.0",
     "pnpm": "^6.30.0",
+    "sass": "^1.49.7",
     "typescript": "^4.5.5",
     "unplugin-auto-import": "^0.5.11",
     "unplugin-vue-components": "^0.17.17",
