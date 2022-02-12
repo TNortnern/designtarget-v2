@@ -5,7 +5,7 @@
       <p v-for="category in store.categories" :key="category.id">
         {{ category.title }}
         <br>
-
+        <AppButton>Ripple?</AppButton>
         <span v-for="resource in category.resources" :key="resource.title">{{ resource.title }}, </span>
       </p>
     </div>

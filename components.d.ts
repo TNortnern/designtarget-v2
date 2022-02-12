@@ -5,7 +5,6 @@
 declare module 'vue' {
   export interface GlobalComponents {
     AppButton: typeof import('./src/components/common/AppButton.vue')['default']
-    First: typeof import('./src/components/First.vue')['default']
     Hamburger: typeof import('./src/components/layout/navigation/Hamburger.vue')['default']
     Hero: typeof import('./src/components/hero/Hero.vue')['default']
     Logo: typeof import('./src/components/common/Logo.vue')['default']
