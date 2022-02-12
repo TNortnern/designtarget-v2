@@ -16,11 +16,11 @@ export const install: UserModule = ({ initialState, app, router }) => {
     pinia.state.value = initialState.pinia || {}
 
   router.beforeEach(async(to, from, next) => {
-    // const rootStore = useRootStore(pinia)
-    // if (!projectStore.all.length || !blogStore.all.length || !rootStore.dataLoaded) {
-    //   // perform the (user-implemented) store action to fill the store's state
-    //   await rootStore.initialize()
-    // }
+    const rootStore = useRootStore(pinia)
+    if (!rootStore.dataLoaded) {
+      // perform the (user-implemented) store action to fill the store's state
+      await rootStore.initialize()
+    }
 
     next()
   })

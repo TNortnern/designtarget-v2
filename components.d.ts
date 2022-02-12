@@ -7,6 +7,7 @@ declare module 'vue' {
     AppButton: typeof import('./src/components/common/AppButton.vue')['default']
     First: typeof import('./src/components/First.vue')['default']
     Hamburger: typeof import('./src/components/layout/navigation/Hamburger.vue')['default']
+    Hero: typeof import('./src/components/hero/Hero.vue')['default']
     Logo: typeof import('./src/components/common/Logo.vue')['default']
     MobileNavigation: typeof import('./src/components/layout/navigation/MobileNavigation.vue')['default']
     Navigation: typeof import('./src/components/layout/navigation/Navigation.vue')['default']
