@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="pt-6 lg:pt-10">
+    <div class="pt-6">
       <div class="lg:(justify-center gap-4) justify-between flex items-center main-container relative">
         <Logo to="/" class="lg:(absolute left-8) 2xl:left-0" />
         <MobileNavigation />

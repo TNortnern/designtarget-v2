@@ -42,7 +42,7 @@ export const useRootStore = defineStore({
       // override strapi structure
       const cleanEntities = (entities: StrapiEntity[]) => entities.map(({ id, attributes }) => ({ id, ...attributes }))
       try {
-        const { data: { data } } = await api.get('/categories?populate=*')
+        const { data: { data } } = await api.get('/categories?populate[resources][populate][0]=cover')
         const cleanData = cleanEntities(data).map((d: any) => ({
           id: d.id,
           ...d,

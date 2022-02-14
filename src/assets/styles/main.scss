@@ -5,15 +5,18 @@ body,
   margin: 0;
   padding: 0;
 }
+
 @mixin btn {
-    @apply rounded-full py-2 px-9 duration-200;
+  @apply rounded-full py-2 px-9 duration-200;
 }
+
 .btn-red {
-    @include btn();
-    @apply bg-app-red-1 text-white hover:ring-2;
+  @include btn();
+  @apply bg-app-red-1 text-white hover: ring-3;
 }
+
 .main-container {
-  @apply max-w-7xl mx-auto px-4 md:px-8 2xl:px-0;
+  @apply max-w-7xl mx-auto px-4 md: px-8 2xl:px-0;
 }
 
 .page-fade-enter-active,
@@ -22,13 +25,14 @@ body,
   transition-property: opacity;
   transition-timing-function: ease-in;
 }
+
 .page-fade-enter-from,
 .page-fade-leave-active {
   opacity: 0;
 }
 
 .error-input {
-  @apply ring-red-500 focus:ring-red-500;
+  @apply ring-red-500 focus: ring-red-500;
 }
 
 /* html.dark {

@@ -1,8 +1,7 @@
 <template>
   <component
     :is="$attrs.to ? 'router-link' : 'button'"
-    v-ripple="25"
-    class="btn-red"
+    class="btn-red ripple"
   >
     <slot />
   </component>
