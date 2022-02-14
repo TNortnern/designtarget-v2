@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export default axios.create({
-  baseURL: 'http://localhost:1340/api',
+  baseURL: 'https://designtarget-v2-api.onrender.com/api',
 })
