@@ -3130,11 +3130,6 @@ vue-router@^4.0.12:
   dependencies:
     "@vue/devtools-api" "^6.0.0-beta.18"
 
-vue3-whr-ripple-directive@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/vue3-whr-ripple-directive/-/vue3-whr-ripple-directive-1.0.0.tgz#023c7c5a672b7d5581c021e18f7a6102c4143ce0"
-  integrity sha512-0L2dPbZLIVferfymqxwgjMRaiVlo/XYfkF52BWhN9tdxzszfVSKfyXbqQf4lQmFot+5S5HclN4xs3WXUiSYpdA==
-
 vue@^3.2.29:
   version "3.2.30"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.30.tgz#47de3039631ac22cab2fd26b427575260199b8bb"
