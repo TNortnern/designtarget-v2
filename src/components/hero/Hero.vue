@@ -5,7 +5,7 @@
       <div class="bg-black text-white xl:h-[25rem] px-12 2xl:(pl-16 pr-10) lg:(pl-10 pr-5 h-[22rem]) flex lg:py-0 pt-11 pb-15">
         <div class="flex-1 lg:pt-11 xl:pt-13 2xl:pt-11.8">
           <h2
-            class="text-3xl lg:text-4xl xl:text-4xl lg:leading-13 xl:leading-15 lg:w-[88%] xl:w-[70%]"
+            class="text-3xl lg:text-4xl xl:text-4xl lg:leading-13 xl:leading-13 lg:w-[88%] xl:w-[70%]"
           >
             Design tools to help you get better.
           </h2>
