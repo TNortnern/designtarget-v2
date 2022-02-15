@@ -9,10 +9,12 @@ declare module 'vue' {
     AppInput: typeof import('./src/components/common/AppInput.vue')['default']
     Collections: typeof import('./src/components/layout/Collections.vue')['default']
     Hamburger: typeof import('./src/components/layout/navigation/Hamburger.vue')['default']
+    Heart: typeof import('./src/components/misc/Heart.vue')['default']
     Hero: typeof import('./src/components/hero/Hero.vue')['default']
     Logo: typeof import('./src/components/common/Logo.vue')['default']
     MobileNavigation: typeof import('./src/components/layout/navigation/MobileNavigation.vue')['default']
     Navigation: typeof import('./src/components/layout/navigation/Navigation.vue')['default']
+    Resource: typeof import('./src/components/shared/Resource.vue')['default']
   }
 }
 

@@ -9,7 +9,7 @@
           designtarget is a curated list of design resources that will help you speed up your workflow.
         </p>
       </div>
-      <div class="flex flex-wrap justify-center lg:(justify-start)">
+      <div class="flex flex-wrap justify-center  lg:(justify-start)">
         <div>
           <div v-for="route in routes" :key="route.text">
             <router-link class="footer-link" :to="route.to">
@@ -28,12 +28,12 @@
           </div>
         </div>
       </div>
-      <div class="lg:w-[30%]">
+      <div class="lg:w-[32%]">
         <p>Sign up to our newsletter and get notified whenever a new resource is released.</p>
         <div class="relative">
           <input
-            placeholder="Search for a resource"
-            class="bg-white py-1.5 pl-4 pr-4 md:pr-31 mt-4 text-lg lg:text-xl 2xl:text-lg text-black rounded-full w-full duration-200 focus:(outline-none ring-4 ring-gray-500)"
+            placeholder="Enter Email"
+            class="bg-white py-1.5 pl-4 pr-4 md:pr-31 mt-4 xl:text-lg 2xl:text-lg text-black rounded-full w-full duration-200 focus:(outline-none ring-4 ring-gray-500)"
             type="text"
           >
           <AppButton class=" mt-3 w-full md:(absolute -right-1 top-4 mt-0 w-auto)">

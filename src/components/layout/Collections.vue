@@ -27,7 +27,7 @@
               },
               '1023': {
                 'slidesPerView': 4.1,
-                'spaceBetween': 20,
+                'spaceBetween': 30,
                 'allowTouchMove': false
               },
               '1279': {
@@ -39,19 +39,7 @@
             class="relative"
           >
             <swiper-slide v-for="resource in category.resources" :key="resource.title">
-              <a target="__blank" :href="resource.url.includes('https') ? resource.url : `https://${resource.url}`">
-                <img
-                  :src="resource.cover?.data ? resource.cover.data.attributes.formats.thumbnail.url : 'http://placeimg.com/222/156/nightlife'"
-                  :alt="resource.title"
-                  :title="resource.title"
-                >
-              </a>
-              <p class="mt-1.5 font-bold text-lg">
-                {{ resource.title }}
-              </p>
-              <p class="mt-2">
-                {{ resource.description }}
-              </p>
+              <Resource :resource="resource" />
             </swiper-slide>
           </swiper>
         </div>

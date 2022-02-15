@@ -8,20 +8,7 @@
           </h1>
           <div class="flex flex-wrap justify-center md:justify-between gap-8">
             <div v-for="resource in category?.resources" :key="resource.title" class="column-widths">
-              <a target="__blank" :href="resource.url.includes('https') ? resource.url : `https://${resource.url}`">
-                <img
-                  class="w-full object-cover rounded-md overflow-hidden duration-200 hover:(ring-4)"
-                  :src="resource.cover?.data ? resource.cover.data.attributes.formats.thumbnail.url : 'http://placeimg.com/222/156/nightlife'"
-                  :alt="resource.title"
-                  :title="resource.title"
-                >
-              </a>
-              <p class="mt-1.5 font-bold text-lg">
-                {{ resource.title }}
-              </p>
-              <p class="mt-2">
-                {{ resource.description }}
-              </p>
+              <Resource :resource="resource" />
             </div>
             <div class="column-widths" />
             <div class="column-widths" />

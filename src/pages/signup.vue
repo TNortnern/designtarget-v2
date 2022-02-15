@@ -1,7 +1,7 @@
 <template>
   <form class="space-y-4" @submit.prevent="() => submitted = true">
-    <AppInput class="w-80" label="Email" />
-    <AppInput class="w-80" label="Password" type="password" />
+    <AppInput class="w-80" label="Email" placeholder="Email" />
+    <AppInput class="w-80" label="Password" type="password" placeholder="Password" />
     <AppButton class="w-full">
       Login
     </AppButton>
