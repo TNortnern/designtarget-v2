@@ -13,7 +13,36 @@ const routes = setupLayouts(generatedRoutes)
 
 export const createApp = ViteSSG(
   App,
-  { routes },
+  {
+    routes,
+    scrollBehavior(to) {
+      if (to.path.includes('collection')) {
+        // let page render firt
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({ // x, y are replaced with left/top to define position, but when used with an element selector (el) will be used as offset
+              top: 0,
+              left: 0,
+              behavior: 'smooth',
+            })
+          }, 300)
+        })
+      }
+      if (to.hash) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({ // x, y are replaced with left/top to define position, but when used with an element selector (el) will be used as offset
+              el: to.hash,
+              // offset has to be set as left and top at the top level
+              // left: 0,
+              // top: 0,
+              behavior: 'smooth',
+            })
+          }, 300)
+        })
+      }
+    },
+  },
   (ctx) => {
     // const { app } = ctx
     // app.directive('ripple', ripple)
