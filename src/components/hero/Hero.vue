@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navigation />
     <div class="main-container mt-6">
       <div class="bg-black text-white xl:h-[25rem] px-12 2xl:(pl-16 pr-10) lg:(pl-10 pr-5 h-[22rem]) flex lg:py-0 pt-11 pb-15">
         <div class="flex-1 lg:pt-11 xl:pt-13 2xl:pt-11.8">

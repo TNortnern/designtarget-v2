@@ -1,15 +1,15 @@
 export const routes = [
   {
     text: 'Illustrations',
-    to: '/illustrations',
+    to: '/collection/illustrations',
   },
   {
     text: 'Images',
-    to: '/images',
+    to: '/collection/images',
   },
   {
     text: 'Icons',
-    to: '/icons',
+    to: '/collection/icons',
   },
 ]
 export const secondaryRoutes = [

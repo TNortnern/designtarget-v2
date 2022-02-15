@@ -1,15 +1,19 @@
 <template>
-  <router-view v-slot="{ Component, route }">
-    <transition name="page-fade">
-      <component :is="Component" :key="route" />
-    </transition>
-  </router-view>
+  <div>
+    <Navigation />
+    <router-view v-slot="{ Component, route }">
+      <transition name="page-fade">
+        <component :is="Component" :key="route" />
+      </transition>
+    </router-view>
+    <AppFooter />
+  </div>
 </template>
 
 <style>
 .page-fade-enter-active,
 .page-fade-leave-active {
-  transition-duration: 0.35s;
+  transition-duration: 0.7s;
   transition-property: opacity;
   transition-timing-function: ease-in;
 }

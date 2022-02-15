@@ -5,7 +5,7 @@
         <Logo to="/" class="lg:(absolute left-8) 2xl:left-0" />
         <MobileNavigation />
         <div class="route-links">
-          <router-link v-for="route in routes" :key="route.text" :to="route.to">
+          <router-link v-for="route in routes" :key="route.text" active-class="text-app-red-1 font-bold" :to="route.to">
             {{ route.text }}
           </router-link>
         </div>

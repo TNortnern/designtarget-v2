@@ -1,5 +1,5 @@
 <template>
-  <main class="font-karla text-black bg-[#F6F6F6] min-h-screen relative">
+  <main class="font-karla text-black bg-[#F6F6F6] min-h-screen relative pb-10">
     <router-view />
   </main>
 </template>

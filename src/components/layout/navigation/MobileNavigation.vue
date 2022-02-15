@@ -27,6 +27,10 @@ import { routes, secondaryRoutes } from '~/constants/routes'
 import { useMobileNavigation } from '~/composables/useMobileNavigation'
 const drawer = ref(null)
 const mobileNavigation = useMobileNavigation()
+const route = useRoute()
+watch(() => route.path, () => {
+  if (mobileNavigation.isDrawerOpen()) mobileNavigation.toggleDrawer(false)
+})
 onClickOutside(drawer, (event) => {
   const el = event.target as HTMLElement
   const clickedHamburger = el.id === 'hamburger' || Array.from(el.classList).includes('hamburger-base')
