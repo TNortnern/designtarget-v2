@@ -49,16 +49,15 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Pagination } from 'swiper'
 import { useRootStore } from '~/stores/root'
 // Import Swiper styles
-import 'swiper/css'
 
 const store = useRootStore()
 const { categories } = storeToRefs(store)
 </script>
 
 <style>
+@import 'swiper/css';
 .swiper {
   width: 100%;
   height: 100%;
