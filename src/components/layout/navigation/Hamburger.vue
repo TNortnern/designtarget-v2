@@ -1,5 +1,10 @@
 <template>
-  <button id="hamburger" class="text-gray-500 w-10 h-10 relative z-30 focus:outline-none lg:hidden" @click="mobileNavigation.toggleDrawer()">
+  <button
+    id="hamburger" :class="
+      mobileNavigation.isDrawerOpen() ? 'fixed right-4 top-6 z-30' : 'relative z-30'
+
+    " class="text-gray-500 w-10 h-10  focus:outline-none lg:hidden" @click="mobileNavigation.toggleDrawer()"
+  >
     <span class="sr-only">Open main menu</span>
     <div
       class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
