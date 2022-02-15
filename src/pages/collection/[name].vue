@@ -2,7 +2,7 @@
   <div class="main-container">
     <template v-if="category">
       <transition name="page-fade">
-        <div :key="category">
+        <div>
           <h1 class="text-4xl font-bold capitalize mt-8 mb-7 text-center md:text-left">
             {{ category?.title }}
           </h1>
