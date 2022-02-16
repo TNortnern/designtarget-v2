@@ -16,6 +16,7 @@
           <div class="lg:w-[19rem] xl:w-[29rem] relative xl:mt-4">
             <img src="/icons/search.svg" alt="" class="absolute left-4 top-8.7">
             <input
+              v-model="searchTerm"
               placeholder="Search for a resource"
               class="bg-white py-3.5 pl-11 pr-3.5 mt-4 text-lg lg:text-xl 2xl:text-lg text-black rounded-md w-full duration-200 focus:(outline-none ring-4 ring-gray-500)"
               type="text"
@@ -31,3 +32,10 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { useRootStore } from '~/stores/root'
+const store = useRootStore()
+const { searchTerm } = storeToRefs(store)
+</script>

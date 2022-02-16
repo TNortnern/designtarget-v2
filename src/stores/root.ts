@@ -24,6 +24,7 @@ interface Category {
 interface RootState {
   appLoading: boolean
   categories: Category[]
+  searchTerm: string
 }
 
 export const useRootStore = defineStore({
@@ -31,10 +32,14 @@ export const useRootStore = defineStore({
   state: (): RootState => ({
     appLoading: false,
     categories: [],
+    searchTerm: '',
   }),
   getters: {
     dataLoaded(): boolean {
       return !!this.categories.length
+    },
+    allResources(): Resource[] {
+      return this.categories.map(c => c.resources).flat(1)
     },
   },
   actions: {

@@ -49,9 +49,3 @@ const store = useRootStore()
 const { categories } = storeToRefs(store)
 const category = computed(() => categories.value.find(c => c.title === route.params.name))
 </script>
-
-<style scoped>
-.column-widths {
-  @apply w-[86%] md:w-[29%] lg:w-[21%];
-}
-</style>
