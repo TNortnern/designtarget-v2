@@ -13,6 +13,10 @@
         Back to Home
       </router-link>
     </div>
+    <Head>
+      <title>Login</title>
+      <meta name="description" content="Designtarget's login page">
+    </Head>
   </form>
 </template>
 
@@ -22,5 +26,6 @@ meta:
 </route>
 
 <script lang="ts" setup>
+import { Head } from '@vueuse/head'
 const submitted = ref(false)
 </script>
