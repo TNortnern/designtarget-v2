@@ -7,7 +7,7 @@ declare module 'vue' {
     AppButton: typeof import('./src/components/common/AppButton.vue')['default']
     AppFooter: typeof import('./src/components/layout/footer/AppFooter.vue')['default']
     AppInput: typeof import('./src/components/common/AppInput.vue')['default']
-    Collections: typeof import('./src/components/layout/Collections.vue')['default']
+    Collections: typeof import('./src/components/home/Collections.vue')['default']
     Hamburger: typeof import('./src/components/layout/navigation/Hamburger.vue')['default']
     Heart: typeof import('./src/components/misc/Heart.vue')['default']
     Hero: typeof import('./src/components/hero/Hero.vue')['default']
@@ -15,6 +15,7 @@ declare module 'vue' {
     MobileNavigation: typeof import('./src/components/layout/navigation/MobileNavigation.vue')['default']
     Navigation: typeof import('./src/components/layout/navigation/Navigation.vue')['default']
     Resource: typeof import('./src/components/shared/Resource.vue')['default']
+    Search: typeof import('./src/components/home/Search.vue')['default']
   }
 }
 
