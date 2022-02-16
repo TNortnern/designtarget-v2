@@ -1,14 +1,13 @@
 import { defineStore } from 'pinia'
 import type { AxiosResponse } from 'axios'
 import axios from 'axios'
+import { useCookies } from '@vueuse/integrations/useCookies'
 import api from '~/api'
+import { JWT } from '~/constants'
 interface User {
+  id: number
   email: string
   favorites: any
-}
-interface StrapiEntity {
-  id: string
-  attributes: any
 }
 export interface StrapiExposedAuthError {
   message: string
@@ -29,6 +28,7 @@ interface StrapiAuthErrorResponse {
 }
 interface RootState {
   loading: boolean
+  resolved: boolean
   user: User | null
   errors: StrapiExposedAuthError[] | string
 }
@@ -36,6 +36,7 @@ export const useAuthStore = defineStore({
   id: 'auth',
   state: (): RootState => ({
     loading: false,
+    resolved: false,
     user: null,
     errors: [],
   }),
@@ -55,7 +56,7 @@ export const useAuthStore = defineStore({
         const { data }: AxiosResponse<{ user: User; jwt: string }> = await api.post('/auth/local', form)
         this.user = data.user
         const cookies = useCookies()
-        cookies.set('auth_token', data.jwt)
+        cookies.set(JWT, data.jwt)
       }
       catch (error) {
         if (axios.isAxiosError(error) && error.response) {
@@ -74,13 +75,33 @@ export const useAuthStore = defineStore({
         const { data }: AxiosResponse<{ user: User; jwt: string }> = await api.post('/auth/local/register', { ...form, email: form.identifier, username: new Date().toString() })
         this.user = data.user
         const cookies = useCookies()
-        cookies.set('auth_token', data.jwt)
+        cookies.set(JWT, data.jwt)
       }
       catch (error) {
         if (axios.isAxiosError(error) && error.response) {
           const strapiErrorResponse = (error.response.data as StrapiAuthErrorResponse)
           this.errors = strapiErrorResponse.error.details?.errors || strapiErrorResponse.error.message
         }
+      }
+      finally {
+        this.toggleLoading()
+      }
+    },
+    async me() {
+      this.toggleLoading()
+      const cookies = useCookies()
+      const authToken = cookies.get(JWT)
+      if (!authToken) {
+        this.resolved = true
+        this.loading = false
+        return
+      }
+      try {
+        const { data }: AxiosResponse<User> = await api.get('/users/me')
+        this.user = data
+      }
+      catch (error) {
+        console.error('error', error)
       }
       finally {
         this.toggleLoading()

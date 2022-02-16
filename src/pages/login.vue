@@ -1,5 +1,5 @@
 <template>
-  <form class="space-y-4" @submit.prevent="handleLogin()">
+  <form v-if="resolved" class="space-y-4" @submit.prevent="handleLogin()">
     <ErrorDisplay :errors="errors" />
     <AppInput v-model="form.identifier" class="w-80" label="Email" placeholder="Email" />
     <AppInput v-model="form.password" class="w-80" label="Password" type="password" placeholder="Password" />
@@ -34,7 +34,7 @@ const form = reactive({
 })
 const store = useAuthStore()
 const router = useRouter()
-const { user, loading, errors } = storeToRefs(store)
+const { user, resolved, loading, errors } = storeToRefs(store)
 const { login } = store
 const handleLogin = async() => {
   await login(form)
@@ -43,5 +43,8 @@ const handleLogin = async() => {
 if (user.value) router.push('/')
 onMounted(() => {
   errors.value = []
+})
+watch(user, (value) => {
+  if (value) router.push('/')
 })
 </script>
