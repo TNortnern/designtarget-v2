@@ -92,6 +92,7 @@ declare global {
   const useCached: typeof import('@vueuse/core')['useCached']
   const useClamp: typeof import('@vueuse/core')['useClamp']
   const useClipboard: typeof import('@vueuse/core')['useClipboard']
+  const useCookies: typeof import('@vueuse/integrations')['useCookies']
   const useColorMode: typeof import('@vueuse/core')['useColorMode']
   const useConfirmDialog: typeof import('@vueuse/core')['useConfirmDialog']
   const useCounter: typeof import('@vueuse/core')['useCounter']

@@ -1,18 +1,17 @@
 <template>
-  <form class="space-y-4" @submit.prevent="() => submitted = true">
-    <AppInput class="w-80" label="Email" placeholder="Email" />
-    <AppInput class="w-80" label="Password" type="password" placeholder="Password" />
-    <AppButton class="w-full">
+  <form class="space-y-4" @submit.prevent="handleLogin()">
+    <ErrorDisplay :errors="errors" />
+    <AppInput v-model="form.identifier" class="w-80" label="Email" placeholder="Email" />
+    <AppInput v-model="form.password" class="w-80" label="Password" type="password" placeholder="Password" />
+    <AppButton :loading="loading" class="w-full capitalize">
       Login
     </AppButton>
-    <p v-if="submitted" class="animate-fade-in animate-slow">
-      Coming soon...
-    </p>
-    <div class="text-center mt-3">
-      <router-link to="/" class="text-blue-600 duration-200 hover:text-blue-700 text-lg">
-        Back to Home
+    <p class="mt-4 text-center">
+      Don't have an account? <router-link to="/signup" class="font-bold">
+        Sign up
       </router-link>
-    </div>
+    </p>
+    <BackToHome />
     <Head>
       <title>Login</title>
       <meta name="description" content="Designtarget's login page">
@@ -27,5 +26,22 @@ meta:
 
 <script lang="ts" setup>
 import { Head } from '@vueuse/head'
-const submitted = ref(false)
+import { storeToRefs } from 'pinia'
+import { useAuthStore } from '~/stores/auth'
+const form = reactive({
+  identifier: '',
+  password: '',
+})
+const store = useAuthStore()
+const router = useRouter()
+const { user, loading, errors } = storeToRefs(store)
+const { login } = store
+const handleLogin = async() => {
+  await login(form)
+  if (user.value) router.push('/')
+}
+if (user.value) router.push('/')
+onMounted(() => {
+  errors.value = []
+})
 </script>

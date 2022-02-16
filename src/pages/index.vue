@@ -16,7 +16,3 @@ import { storeToRefs } from 'pinia'
 import { useRootStore } from '~/stores/root'
 const { searchTerm } = storeToRefs(useRootStore())
 </script>
-
-<style lang="scss">
-
-</style>

@@ -5,6 +5,9 @@ import { useRootStore } from '~/stores/root'
 // https://pinia.esm.dev/
 export const install: UserModule = ({ initialState, app, router }) => {
   const pinia = createPinia()
+  pinia.use(({ store }) => {
+    store.router = router
+  })
   app.use(pinia)
   // Refer to
   // https://github.com/antfu/vite-ssg/blob/main/README.md#state-serialization
