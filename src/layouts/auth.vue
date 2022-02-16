@@ -2,7 +2,7 @@
   <div>
     <div class="flex">
       <img class="h-screen w-1/2 hidden lg:block" src="/auth/authimage.png" alt="desk material">
-      <div class="flex justify-center items-center w-full">
+      <div class="flex justify-center items-center w-full h-screen lg:h-auto">
         <router-view v-slot="{ Component, route }">
           <component :is="Component" :key="route" />
         </router-view>
@@ -10,3 +10,7 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+
+</script>

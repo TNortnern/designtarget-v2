@@ -12,9 +12,12 @@
           </div>
         </div>
         <div class="mt-4 px-5">
-          <router-link v-for="route in [...routes, ...secondaryRoutes]" :key="route.text" :to="route.to" class="block py-3.5 text-sm">
+          <router-link v-for="route in routesToRender" :key="route.text" :to="route.to" class="mobile-navigation-link">
             {{ route.text }}
           </router-link>
+          <button v-if="user" class="mobile-navigation-link" @click="authStore.logout()">
+            Logout
+          </button>
         </div>
       </nav>
     </transition>
@@ -23,12 +26,16 @@
 
 <script lang="ts" setup>
 import { onClickOutside } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
 import { routes, secondaryRoutes } from '~/constants/routes'
 import { useMobileNavigation } from '~/composables/useMobileNavigation'
+import { useAuthStore } from '~/stores/auth'
 const drawer = ref(null)
 const mobileNavigation = useMobileNavigation()
-const route = useRoute()
-watch(() => route.path, () => {
+const currentRoute = useRoute()
+const authStore = useAuthStore()
+const { user } = storeToRefs(authStore)
+watch(() => currentRoute.path, () => {
   if (mobileNavigation.isDrawerOpen()) mobileNavigation.toggleDrawer(false)
 })
 onClickOutside(drawer, (event) => {
@@ -39,6 +46,8 @@ onClickOutside(drawer, (event) => {
     mobileNavigation.toggleDrawer(false)
 },
 )
+const allRoutes = computed(() => [...routes, ...secondaryRoutes])
+const routesToRender = computed(() => user.value ? allRoutes.value.filter(r => !r.guest) : allRoutes.value.filter(r => !r.auth))
 </script>
 
 <style scoped>
@@ -57,5 +66,8 @@ onClickOutside(drawer, (event) => {
 }
 .drawer-leave-to, .drawer-enter-from {
   @apply transform translate-x-80;
+}
+.mobile-navigation-link {
+  @apply block py-3.5 text-sm text-left w-full;
 }
 </style>

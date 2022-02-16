@@ -107,5 +107,10 @@ export const useAuthStore = defineStore({
         this.toggleLoading()
       }
     },
+    logout() {
+      this.user = null
+      const cookies = useCookies()
+      cookies.remove(JWT)
+    },
   },
 })

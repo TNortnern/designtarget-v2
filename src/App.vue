@@ -5,12 +5,20 @@
 </template>
 
 <script lang="ts" setup>
+import { useCookies } from '@vueuse/integrations/useCookies'
 import { storeToRefs } from 'pinia'
 import { useAuthStore } from '~/stores/auth'
 const authStore = useAuthStore()
 const { user } = storeToRefs(authStore)
+const cookies = useCookies()
 onMounted(async() => {
   await authStore.me()
+  cookies.addChangeListener((c) => {
+    console.log('c', c)
+  })
+})
+onUnmounted(() => {
+  cookies.removeChangeListener(() => {})
 })
 </script>
 

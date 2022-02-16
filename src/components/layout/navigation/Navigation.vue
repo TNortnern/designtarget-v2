@@ -5,14 +5,22 @@
         <Logo to="/" class="lg:(absolute left-8) 2xl:left-0" />
         <MobileNavigation />
         <div class="route-links">
-          <router-link v-for="route in routes" :key="route.text" active-class="text-app-red-1 font-bold" :to="route.to">
+          <router-link v-for="route in routesToRender(routes)" :key="route.text" active-class="text-app-red-1 font-bold" :to="route.to">
             {{ route.text }}
           </router-link>
         </div>
         <div class="route-links absolute lg:right-8 2xl:right-0">
-          <router-link v-for="route in secondaryRoutes" :key="route.text" :class="route.class" :to="route.to">
+          <router-link v-for="route in routesToRender(secondaryRoutes)" :key="route.text" :class="route.class" :to="route.to">
             {{ route.text }}
           </router-link>
+          <template v-if="user">
+            <router-link to="/myresources" class="route-links">
+              My Resources
+            </router-link>
+            <AppButton @click="authStore.logout()">
+              Logout
+            </AppButton>
+          </template>
         </div>
       </div>
     </div>
@@ -20,7 +28,13 @@
 </template>
 
 <script lang="ts" setup>
+import { storeToRefs } from 'pinia'
+import type { NavigationRoute } from '~/constants/routes'
 import { routes, secondaryRoutes } from '~/constants/routes'
+import { useAuthStore } from '~/stores/auth'
+const authStore = useAuthStore()
+const { user } = storeToRefs(authStore)
+const routesToRender = (routesToCheck: NavigationRoute[]) => user.value ? routesToCheck.filter(r => !r.guest) : routesToCheck.filter(r => !r.auth)
 </script>
 
 <style lang="scss" scoped>
