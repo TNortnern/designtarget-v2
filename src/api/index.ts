@@ -2,10 +2,10 @@ import { useCookies } from '@vueuse/integrations/useCookies'
 import type { AxiosRequestConfig } from 'axios'
 import axios from 'axios'
 import { JWT } from '~/constants'
-const $axios = axios.create({
+const api = axios.create({
   baseURL: import.meta.env.VITE_API_LOCAL_URL || 'https://designtarget-v2-api.onrender.com/api',
 })
-$axios.interceptors.request.use((config: AxiosRequestConfig) => {
+api.interceptors.request.use((config: AxiosRequestConfig) => {
   if (config?.headers) {
     const cookies = useCookies()
     const authToken = cookies.get(JWT)
@@ -15,4 +15,4 @@ $axios.interceptors.request.use((config: AxiosRequestConfig) => {
 
   return config
 })
-export default $axios
+export default api

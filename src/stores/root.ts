@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import api from '~/api'
 import type { Media } from '~/types'
 export interface Resource {
+  id: number
   title: string
   description: string
   cover: Media

@@ -2,12 +2,18 @@ import { defineStore } from 'pinia'
 import type { AxiosResponse } from 'axios'
 import axios from 'axios'
 import { useCookies } from '@vueuse/integrations/useCookies'
+import type { Resource } from './root'
 import api from '~/api'
 import { JWT } from '~/constants'
+
+interface Favorite {
+  id: number
+  resource: Resource
+}
 interface User {
   id: number
   email: string
-  favorites: any
+  favorites: Favorite[]
 }
 export interface StrapiExposedAuthError {
   message: string
@@ -104,6 +110,7 @@ export const useAuthStore = defineStore({
         console.error('error', error)
       }
       finally {
+        this.resolved = true
         this.toggleLoading()
       }
     },
