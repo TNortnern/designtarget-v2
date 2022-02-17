@@ -13,6 +13,9 @@
           <router-link v-for="route in routesToRender(secondaryRoutes)" :key="route.text" :class="route.class" :to="route.to">
             {{ route.text }}
           </router-link>
+          <template v-if="!resolved">
+            <Spinner />
+          </template>
           <template v-if="user">
             <router-link to="/myresources" class="route-links">
               My Resources
@@ -33,8 +36,17 @@ import type { NavigationRoute } from '~/constants/routes'
 import { routes, secondaryRoutes } from '~/constants/routes'
 import { useAuthStore } from '~/stores/auth'
 const authStore = useAuthStore()
-const { user } = storeToRefs(authStore)
-const routesToRender = (routesToCheck: NavigationRoute[]) => user.value ? routesToCheck.filter(r => !r.guest) : routesToCheck.filter(r => !r.auth)
+const { user, resolved } = storeToRefs(authStore)
+const routesToRender = (routesToCheck: NavigationRoute[]) => {
+  return routesToCheck.filter((r) => {
+    if (r.guest) {
+      if (resolved.value && !user.value) return r
+      else return false
+    }
+
+    return r
+  })
+}
 </script>
 
 <style lang="scss" scoped>

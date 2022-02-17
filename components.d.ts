@@ -18,6 +18,7 @@ declare module 'vue' {
     Navigation: typeof import('./src/components/layout/navigation/Navigation.vue')['default']
     Resource: typeof import('./src/components/shared/Resource.vue')['default']
     Search: typeof import('./src/components/home/Search.vue')['default']
+    Spinner: typeof import('./src/components/misc/Spinner.vue')['default']
   }
 }
 
