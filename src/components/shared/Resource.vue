@@ -27,7 +27,7 @@ const props = defineProps<{ resource: Resource }>()
 const authStore = useAuthStore()
 const { user } = storeToRefs(authStore)
 const favoriting = ref(false)
-const favorited = computed(() => user.value?.favorites.find(f => f.resource?.id === props.resource?.id))
+const favorited = computed(() => user.value?.favorites?.find(f => f.resource?.id === props.resource?.id) || [])
 const router = useRouter()
 const favoriteItem = async() => {
   if (favoriting.value) return

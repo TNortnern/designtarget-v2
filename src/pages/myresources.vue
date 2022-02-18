@@ -47,7 +47,7 @@ import { storeToRefs } from 'pinia'
 import { useAuthStore } from '~/stores/auth'
 const authStore = useAuthStore()
 const { user, resolved, loading } = storeToRefs(authStore)
-const resources = computed(() => user.value?.favorites.map(f => ({
+const resources = computed(() => user.value?.favorites?.map(f => ({
   ...f.resource,
-})))
+}) || []))
 </script>
