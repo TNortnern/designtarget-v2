@@ -6,7 +6,7 @@
         <component :is="Component" :key="route" />
       </transition>
     </router-view>
-    <AppFooter v-show="!searchTerm && $route.path !== '/myresources'" />
+    <AppFooter v-show="!searchTerm && $route.path !== '/myresources' && !$route.path.includes('collection')" />
   </div>
 </template>
 
