@@ -79,7 +79,7 @@ export const useAuthStore = defineStore({
       this.toggleLoading()
       try {
         const { data }: AxiosResponse<{ user: User; jwt: string }> = await api.post('/auth/local/register', { ...form, email: form.identifier, username: new Date().toString() })
-        this.user = data.user
+        this.user = { ...data.user, favorites: [] }
         const cookies = useCookies()
         cookies.set(JWT, data.jwt)
       }
