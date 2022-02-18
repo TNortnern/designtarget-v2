@@ -15,9 +15,14 @@
           <router-link v-for="route in routesToRender" :key="route.text" :to="route.to" class="mobile-navigation-link">
             {{ route.text }}
           </router-link>
-          <button v-if="user" class="mobile-navigation-link" @click="authStore.logout()">
-            Logout
-          </button>
+          <template v-if="user">
+            <router-link to="/myresources" class="mobile-navigation-link">
+              My Resources
+            </router-link>
+            <button class="mobile-navigation-link" @click="authStore.logout()">
+              Logout
+            </button>
+          </template>
         </div>
       </nav>
     </transition>
