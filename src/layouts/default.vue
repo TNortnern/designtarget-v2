@@ -2,7 +2,7 @@
   <div class="pb-12 bg-[#F6F6F6] min-h-screen">
     <Navigation />
     <router-view v-slot="{ Component, route }">
-      <transition name="page-fade">
+      <transition name="page-fade" mode="out-in">
         <component :is="Component" :key="route" />
       </transition>
     </router-view>
