@@ -14,22 +14,20 @@
     </h1>
     <template v-if="!loading && resolved">
       <template v-if="resources?.length">
-        <transition name="page-fade">
-          <div>
-            <div class="flex flex-wrap justify-center md:justify-between gap-8">
-              <div
-                v-for="resource in resources"
-                :key="resource.title"
-                class="column-widths"
-              >
-                <Resource :resource="resource" />
-              </div>
-              <div class="column-widths" />
-              <div class="column-widths" />
-              <div class="column-widths" />
+        <div>
+          <div class="flex flex-wrap justify-center md:justify-between gap-8">
+            <div
+              v-for="resource in resources"
+              :key="resource.title"
+              class="column-widths"
+            >
+              <Resource :resource="resource" />
             </div>
+            <div class="column-widths" />
+            <div class="column-widths" />
+            <div class="column-widths" />
           </div>
-        </transition>
+        </div>
       </template>
       <div v-else>
         No resources found.
